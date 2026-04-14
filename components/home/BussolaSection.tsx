@@ -2,28 +2,36 @@
 
 import { Section } from "@/components/layout/Section";
 import { Reveal } from "@/components/ui/Reveal";
+import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
+import { SectionLabel } from "@/components/ui/SectionLabel";
+import { DecorativeNumber } from "@/components/ui/DecorativeNumber";
 import { bussolaContent } from "@/lib/content/home";
 
 export function BussolaSection() {
   return (
-    <Section id="bussola">
+    <Section id="bussola" className="bg-ivory">
+      <DecorativeNumber position="bottom-left">03</DecorativeNumber>
+
       <div className="max-w-4xl">
-        <Reveal>
+        <SectionLabel number="03" label="La nostra bussola" />
+
+        <RevealOnScroll>
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-olive mb-2">
             {bussolaContent.subtitle}
           </p>
           <h2
             id="bussola-heading"
-            className="font-serif text-2xl font-semibold text-charcoal leading-tight sm:text-3xl mb-12"
+            className="font-serif text-2xl font-semibold text-charcoal leading-tight sm:text-3xl lg:text-4xl mb-14"
           >
             {bussolaContent.title}
           </h2>
-        </Reveal>
+        </RevealOnScroll>
 
-        <div className="grid gap-10 sm:grid-cols-2 lg:gap-16">
+        <div className="grid gap-10 sm:grid-cols-2 sm:gap-16">
           <Reveal delay={0.06}>
-            <div>
-              <h3 className="font-serif text-lg font-semibold text-charcoal mb-3">
+            <div className="pb-10 sm:pb-0">
+              <div className="w-6 h-[1px] bg-olive/40 mb-4" />
+              <h3 className="font-serif text-base font-semibold text-charcoal mb-3 uppercase tracking-wide text-[13px]">
                 Missione
               </h3>
               <p className="text-charcoal-soft leading-relaxed text-sm sm:text-base">
@@ -31,9 +39,11 @@ export function BussolaSection() {
               </p>
             </div>
           </Reveal>
+
           <Reveal delay={0.1}>
-            <div>
-              <h3 className="font-serif text-lg font-semibold text-charcoal mb-3">
+            <div className="pt-10 sm:pt-0">
+              <div className="w-6 h-[1px] bg-olive/40 mb-4" />
+              <h3 className="font-serif text-base font-semibold text-charcoal mb-3 uppercase tracking-wide text-[13px]">
                 Visione
               </h3>
               <p className="text-charcoal-soft leading-relaxed text-sm sm:text-base">
@@ -44,23 +54,24 @@ export function BussolaSection() {
         </div>
 
         <Reveal delay={0.14}>
-          <div className="mt-12 pt-10 border-t border-ivory-dark">
-            <h3 className="font-serif text-lg font-semibold text-charcoal mb-4">
-              Valori
-            </h3>
-            <p className="text-charcoal-soft text-sm sm:text-base mb-6">
-              Eccellenza, integrità, interculturalità, sostenibilità, visione
-              condivisa, capacità di unire mondi diversi.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {bussolaContent.values.map((v) => (
-                <span
-                  key={v}
-                  className="inline-flex rounded-md border border-ivory-dark bg-white/50 px-3 py-1.5 text-xs font-medium text-charcoal-soft"
-                >
-                  {v}
-                </span>
-              ))}
+          <div className="mt-14 pt-10 border-t border-charcoal/8">
+            <div className="flex items-start gap-10 flex-wrap sm:flex-nowrap">
+              <div className="shrink-0">
+                <div className="w-6 h-[1px] bg-gold/50 mb-4" />
+                <h3 className="font-serif text-base font-semibold text-charcoal uppercase tracking-wide text-[13px]">
+                  Valori
+                </h3>
+              </div>
+              <div className="flex flex-wrap gap-2.5">
+                {bussolaContent.values.map((v) => (
+                  <span
+                    key={v}
+                    className="inline-flex border border-charcoal/12 px-3 py-1.5 text-xs font-medium text-charcoal-soft tracking-wide"
+                  >
+                    {v}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </Reveal>

@@ -26,11 +26,11 @@ npm run build
 npm start
 ```
 
-## Placeholder da sostituire prima della pubblicazione
+## Dati da completare prima della pubblicazione
 
-- **Contatti** (`lib/content/contact.ts`): email (`info@mezchila.com`), telefono (`+39 000 000 0000`), numero WhatsApp (`390000000000`), sede (`Roma, Italia`).
+- **Contatti** (`lib/content/contact.ts`): email (`info@mezchila.com`), telefono e numero WhatsApp da confermare, sede (`Roma, Italia`).
 - **Config** (`lib/config.ts`): `baseUrl` con l’URL reale del sito.
-- **Pagine legali**: i testi in `lib/content/legal.ts` sono placeholder; sostituire con le policy definitive redatte da un professionista.
+- **Pagine legali**: verificare periodicamente i testi in `lib/content/legal.ts` con un professionista.
 - **Form contatti**: l’invio è solo front-end (messaggio di successo). Per invio reale va integrato un backend (API route, servizio email, form third-party).
 
 ## Sezione Spirits (nascosta di default)
@@ -53,12 +53,12 @@ La sezione sul progetto spirits è in codice ma nascosta. Per mostrarla: in `lib
 4. Aree di business (export, produzione locale, spirits se attivo)
 5. Ecosistema e opportunità (rete istituzionale + strumenti/finanziamenti)
 6. Manifesto (blocco identità)
-7. Storie teaser (minimale se placeholder)
+7. Storie teaser (minimale in assenza di casi pubblicati)
 8. CTA finale + contatti integrati
 
 ## Contenuti e evoluzione
 
 - **Lingua**: contenuti in italiano; struttura pronta per estensione multilingue (it, es, en) tramite `currentLang` e chiavi in `lib/content/`.
-- **Storie e collaborazioni**: teaser minimale quando solo placeholder; `storieContent.items` per voci reali. Sostituire `StorieTeaser` con sezione completa quando disponibili storie.
-- **Partner/clienti/testimonianze**: tipi `TestimonialPlaceholder` e `PartnerStoryPlaceholder` in `types.ts`; nessun dato inventato, solo placeholder espliciti.
+- **Storie e collaborazioni**: teaser minimale quando non ci sono ancora casi pubblicati; `storieContent.items` per voci reali. Sostituire `StorieTeaser` con sezione completa quando disponibili storie.
+- **Partner/clienti/testimonianze**: tipi `TestimonialPlaceholder` e `PartnerStoryPlaceholder` in `types.ts`; evitare dati inventati.
 - **Spirits**: sezione in codice con narrativa aggiornata (agave, sensibilità italiana, progetto in sviluppo); nascosta da `showSpiritsProject: false`.

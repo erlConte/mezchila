@@ -4,7 +4,9 @@ import { cookieSections } from "@/lib/content/legal";
 
 export const metadata: Metadata = {
   title: "Cookie Policy",
-  description: "Informativa sui cookie del sito Mezchila Srls.",
+  description:
+    "Cookie policy di Mezchila Srls: tipologie di cookie utilizzati e come gestirli.",
+  robots: { index: false },
 };
 
 export default function CookiePolicyPage() {
@@ -16,8 +18,8 @@ export default function CookiePolicyPage() {
             Cookie Policy
           </h1>
           <p className="mt-4 text-charcoal-soft">
-            Questa pagina contiene placeholder da sostituire con il testo
-            legale definitivo redatto da un professionista.
+            Dettagli sui cookie tecnici utilizzati dal sito e sulle modalita di
+            gestione tramite browser.
           </p>
           <div className="mt-12 space-y-10">
             {cookieSections.map((section) => (

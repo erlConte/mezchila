@@ -25,6 +25,15 @@ const config: Config = {
         serif: ["var(--font-serif)", "Georgia", "serif"],
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
       },
+      letterSpacing: {
+        editorial: "0.3em",
+      },
+      fontSize: {
+        display: [
+          "clamp(3rem, 8vw, 7rem)",
+          { lineHeight: "0.95", letterSpacing: "-0.02em" },
+        ],
+      },
       spacing: {
         "18": "4.5rem",
         "22": "5.5rem",

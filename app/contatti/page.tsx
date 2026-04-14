@@ -8,10 +8,12 @@ import { Mail, Phone, MessageCircle, MapPin } from "lucide-react";
 export const metadata: Metadata = {
   title: "Contatti",
   description:
-    "Contatta Mezchila Srls per informazioni su internazionalizzazione, produzione locale e partnership tra Italia e America Latina.",
+    "Contattaci per export, produzione locale o partnership tra Italia e America Latina. Scrivici o usa i contatti diretti.",
 };
 
 const whatsappUrl = `https://wa.me/${contactData.whatsappNumber}`;
+const hasPhoneNumber = /^\+?\d[\d\s]+$/.test(contactData.phone);
+const hasWhatsappNumber = /^\d{7,}$/.test(contactData.whatsappNumber);
 
 const directItems: Array<{
   icon: typeof Mail;
@@ -27,17 +29,17 @@ const directItems: Array<{
     value: contactData.email,
   },
   {
-    href: `tel:${contactData.phone.replace(/\s/g, "")}`,
+    href: hasPhoneNumber ? `tel:${contactData.phone.replace(/\s/g, "")}` : undefined,
     icon: Phone,
     label: contactPageContent.direct.phone,
     value: contactData.phone,
   },
   {
-    href: whatsappUrl,
+    href: hasWhatsappNumber ? whatsappUrl : undefined,
     icon: MessageCircle,
     label: contactPageContent.direct.whatsapp,
-    value: "WhatsApp",
-    external: true,
+    value: hasWhatsappNumber ? "WhatsApp" : "Disponibile su richiesta via email",
+    external: hasWhatsappNumber,
   },
   {
     icon: MapPin,
@@ -50,6 +52,12 @@ export default function ContactPage() {
   return (
     <div className="py-16 sm:py-20">
       <Container>
+        <div className="flex items-center gap-3 mb-8">
+          <div className="w-8 h-[2px] bg-olive" />
+          <span className="text-xs font-medium uppercase tracking-[0.2em] text-olive">
+            Scriviamo insieme
+          </span>
+        </div>
         <SectionHeader
           title={contactPageContent.title}
           intro={contactPageContent.intro}

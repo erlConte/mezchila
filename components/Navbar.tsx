@@ -50,7 +50,7 @@ export function Navbar() {
           className="flex items-center gap-2.5 font-serif text-lg font-semibold text-charcoal hover:text-olive transition-colors min-w-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-olive focus-visible:ring-offset-2 rounded"
         >
           <span
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md border border-charcoal/30 bg-ivory text-charcoal text-[0.75rem] font-semibold"
+            className="flex h-8 w-8 shrink-0 items-center justify-center border border-charcoal/20 font-serif text-sm font-semibold text-charcoal"
             aria-hidden
           >
             M
@@ -61,13 +61,23 @@ export function Navbar() {
         <ul className="hidden md:flex items-center gap-7 lg:gap-8">
           {navItems.map((item) => (
             <li key={item.href}>
-              <Link
-                href={item.href}
-                className="text-sm font-medium text-charcoal-soft hover:text-olive transition-colors whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-olive focus-visible:ring-offset-2 rounded px-1 py-0.5"
-                onClick={() => setOpen(false)}
-              >
-                {item.label}
-              </Link>
+              {item.href === "/contatti" ? (
+                <Link
+                  href="/contatti"
+                  className="inline-flex items-center text-sm font-medium text-charcoal border border-charcoal/25 px-4 py-1.5 hover:border-olive hover:text-olive transition-colors rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-olive"
+                  onClick={() => setOpen(false)}
+                >
+                  Contatti
+                </Link>
+              ) : (
+                <Link
+                  href={item.href}
+                  className="text-sm font-medium text-charcoal/70 hover:text-olive transition-colors whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-olive focus-visible:ring-offset-2 rounded px-1 py-0.5"
+                  onClick={() => setOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              )}
             </li>
           ))}
         </ul>

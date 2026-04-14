@@ -1,5 +1,5 @@
 export const siteConfig = {
   showSpiritsProject: false,
   companyName: "Mezchila Srls",
-  baseUrl: "https://mezchila.com",
+  baseUrl: "https://www.mezchila.it",
 } as const;

@@ -4,7 +4,9 @@ import { privacySections } from "@/lib/content/legal";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "Informativa sulla privacy di Mezchila Srls.",
+  description:
+    "Informativa sul trattamento dei dati personali di Mezchila Srls, ai sensi del Reg. UE 2016/679 (GDPR).",
+  robots: { index: false },
 };
 
 export default function PrivacyPage() {
@@ -16,8 +18,8 @@ export default function PrivacyPage() {
             Privacy Policy
           </h1>
           <p className="mt-4 text-charcoal-soft">
-            Questa pagina contiene placeholder da sostituire con il testo legale
-            definitivo redatto da un professionista.
+            Informazioni sul trattamento dei dati personali effettuato da
+            Mezchila Srls ai sensi del Regolamento UE 2016/679.
           </p>
           <div className="mt-12 space-y-10">
             {privacySections.map((section) => (
