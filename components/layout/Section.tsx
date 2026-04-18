@@ -17,7 +17,7 @@ export function Section({
   return (
     <section
       id={id}
-      className={`relative py-16 sm:py-20 lg:py-24 overflow-x-hidden ${className}`}
+      className={`relative py-16 sm:py-20 lg:py-24 [overflow-x:clip] ${className}`}
       aria-labelledby={id ? `${id}-heading` : undefined}
     >
       <Container className={containerClassName}>{children}</Container>

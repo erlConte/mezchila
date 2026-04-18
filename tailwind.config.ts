@@ -11,6 +11,9 @@ const config: Config = {
       colors: {
         ivory: "#F8F6F2",
         "ivory-dark": "#F0EDE7",
+        "ivory-soft": "#FBF8F1",
+        "ivory-warm": "#F2EBDB",
+        "ivory-deep": "#E8DFC8",
         charcoal: "#2C2A28",
         "charcoal-soft": "#3D3B38",
         olive: "#5C6B52",

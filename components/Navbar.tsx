@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { siteConfig } from "@/lib/config";
 
 const navItems = [
@@ -20,7 +20,8 @@ export function Navbar() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -35,45 +36,38 @@ export function Navbar() {
   return (
     <header
       role="banner"
-      className={`sticky top-0 z-50 transition-all duration-200 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-ivory/95 backdrop-blur-sm border-b border-ivory-dark"
-          : "bg-ivory"
+          ? "bg-ivory-soft/85 backdrop-blur-md"
+          : "bg-transparent"
       }`}
     >
       <nav
-        className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3.5 sm:px-6 lg:px-8"
+        className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8 lg:py-5"
         aria-label="Navigazione principale"
       >
         <Link
           href="/"
-          className="flex items-center gap-2.5 font-serif text-lg font-semibold text-charcoal hover:text-olive transition-colors min-w-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-olive focus-visible:ring-offset-2 rounded"
+          className="font-serif text-lg font-medium tracking-[0.08em] text-charcoal hover:text-olive transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-olive focus-visible:ring-offset-2 rounded"
+          aria-label={siteConfig.companyName}
         >
-          <span
-            className="flex h-8 w-8 shrink-0 items-center justify-center border border-charcoal/20 font-serif text-sm font-semibold text-charcoal"
-            aria-hidden
-          >
-            M
-          </span>
-          <span className="truncate">{siteConfig.companyName}</span>
+          MEZCHILA
         </Link>
 
-        <ul className="hidden md:flex items-center gap-7 lg:gap-8">
-          {navItems.map((item) => (
+        <ul className="hidden md:flex items-center gap-7 lg:gap-9">
+          {navItems.slice(1).map((item) => (
             <li key={item.href}>
               {item.href === "/contatti" ? (
                 <Link
                   href="/contatti"
-                  className="inline-flex items-center text-sm font-medium text-charcoal border border-charcoal/25 px-4 py-1.5 hover:border-olive hover:text-olive transition-colors rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-olive"
-                  onClick={() => setOpen(false)}
+                  className="inline-flex items-center text-[13px] font-medium text-charcoal border border-charcoal/30 px-4 py-1.5 hover:border-olive hover:text-olive transition-colors rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-olive"
                 >
                   Contatti
                 </Link>
               ) : (
                 <Link
                   href={item.href}
-                  className="text-sm font-medium text-charcoal/70 hover:text-olive transition-colors whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-olive focus-visible:ring-offset-2 rounded px-1 py-0.5"
-                  onClick={() => setOpen(false)}
+                  className="text-[13px] font-medium text-charcoal/75 hover:text-olive transition-colors whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-olive focus-visible:ring-offset-2 rounded px-1 py-0.5"
                 >
                   {item.label}
                 </Link>
@@ -84,7 +78,7 @@ export function Navbar() {
 
         <button
           type="button"
-          className="md:hidden p-2.5 text-charcoal hover:text-olive focus:outline-none focus-visible:ring-2 focus-visible:ring-olive rounded shrink-0"
+          className="md:hidden p-2 text-charcoal hover:text-olive focus:outline-none focus-visible:ring-2 focus-visible:ring-olive rounded shrink-0"
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label={open ? "Chiudi menu" : "Apri menu"}
@@ -104,7 +98,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden border-t border-ivory-dark bg-ivory"
+            className="md:hidden bg-ivory-soft/95 backdrop-blur-md"
           >
             <ul className="flex flex-col px-4 py-5 gap-0.5">
               {navItems.map((item) => (
