@@ -2,8 +2,7 @@
 
 import { Section } from "@/components/layout/Section";
 import { Reveal } from "@/components/ui/Reveal";
-import { SectionLabel } from "@/components/ui/SectionLabel";
-import { DecorativeNumber } from "@/components/ui/DecorativeNumber";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 import { ecosystemContent } from "@/lib/content/home";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -13,24 +12,15 @@ export function EcosystemSection() {
 
   return (
     <Section id="ecosistema" className="bg-ivory-dark/40">
-      <DecorativeNumber position="bottom-right">05</DecorativeNumber>
 
-      <SectionLabel number="05" label="Ecosistema" />
-
-      <Reveal>
-        <p className="text-xs font-medium uppercase tracking-[0.2em] text-olive mb-2">
-          {ecosystemContent.subtitle}
-        </p>
-        <h2
-          id="ecosistema-heading"
-          className="font-serif text-2xl font-semibold text-charcoal leading-tight sm:text-3xl lg:text-4xl max-w-2xl mb-4"
-        >
-          {ecosystemContent.title}
-        </h2>
-        <p className="text-charcoal-soft leading-relaxed max-w-2xl text-sm sm:text-base">
-          {ecosystemContent.intro}
-        </p>
-      </Reveal>
+      <SectionHeader
+        number="05"
+        label="Ecosistema"
+        kicker={ecosystemContent.subtitle}
+        title={ecosystemContent.title}
+        description={ecosystemContent.intro}
+        titleId="ecosistema-heading"
+      />
 
       <div className="mt-14 grid gap-12 lg:grid-cols-2 lg:gap-16">
         <Reveal delay={0.06}>
@@ -89,13 +79,22 @@ export function EcosystemSection() {
               ))}
             </div>
             <div className="mt-8 pt-6 border-t border-charcoal/8">
-              <Link
-                href="/contatti"
-                className="inline-flex items-center gap-2 text-sm font-medium text-olive hover:text-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-olive focus-visible:ring-offset-2 rounded"
-              >
-                Valutiamo insieme le opportunità
-                <ArrowRight size={14} aria-hidden />
-              </Link>
+              <div className="flex flex-wrap gap-x-6 gap-y-3 items-center">
+                <Link
+                  href="/ecosistema"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-olive hover:text-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-olive focus-visible:ring-offset-2 rounded"
+                >
+                  Esplora tutto l'ecosistema
+                  <ArrowRight size={14} aria-hidden />
+                </Link>
+                <span className="text-charcoal/20">·</span>
+                <Link
+                  href="/contatti"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-charcoal-soft hover:text-olive transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-olive focus-visible:ring-offset-2 rounded"
+                >
+                  Valutiamo insieme le opportunità
+                </Link>
+              </div>
             </div>
           </div>
         </Reveal>

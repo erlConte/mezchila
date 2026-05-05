@@ -2,30 +2,22 @@
 
 import { Section } from "@/components/layout/Section";
 import { Reveal } from "@/components/ui/Reveal";
-import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
-import { SectionLabel } from "@/components/ui/SectionLabel";
-import { DecorativeNumber } from "@/components/ui/DecorativeNumber";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 import { bussolaContent } from "@/lib/content/home";
 
 export function BussolaSection() {
   return (
     <Section id="bussola" className="bg-ivory">
-      <DecorativeNumber position="bottom-left">03</DecorativeNumber>
 
       <div className="max-w-4xl">
-        <SectionLabel number="03" label="La nostra bussola" />
-
-        <RevealOnScroll>
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-olive mb-2">
-            {bussolaContent.subtitle}
-          </p>
-          <h2
-            id="bussola-heading"
-            className="font-serif text-2xl font-semibold text-charcoal leading-tight sm:text-3xl lg:text-4xl mb-14"
-          >
-            {bussolaContent.title}
-          </h2>
-        </RevealOnScroll>
+        <SectionHeader
+          number="03"
+          label="La nostra bussola"
+          kicker={bussolaContent.subtitle}
+          title={bussolaContent.title}
+          titleId="bussola-heading"
+          className="mb-14"
+        />
 
         <div className="grid gap-10 sm:grid-cols-2 sm:gap-16">
           <Reveal delay={0.06}>

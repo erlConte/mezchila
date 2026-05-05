@@ -9,6 +9,15 @@ const path = require("path");
  */
 const nextConfig = {
   reactStrictMode: true,
+  outputFileTracingRoot: path.join(__dirname),
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+    ],
+  },
   webpack: (config, { dev }) => {
     if (dev) {
       config.cache = {

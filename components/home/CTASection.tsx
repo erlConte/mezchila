@@ -44,15 +44,15 @@ export function CTASection() {
       className="bg-ivory text-charcoal relative overflow-hidden"
       aria-labelledby="cta-heading"
     >
-      <div
-        className="absolute -bottom-16 -right-8 font-serif text-[clamp(6rem,20vw,14rem)] leading-none text-charcoal/[0.03] select-none pointer-events-none"
-        aria-hidden
-      >
-        07
-      </div>
-
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
         <div className="max-w-2xl">
+          <div className="flex items-center gap-3 mb-8">
+            <span className="font-serif text-[11px] text-olive/60 tabular-nums">07</span>
+            <div className="w-6 h-[1px] bg-olive/40" />
+            <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-charcoal/45">
+              Costruiamo insieme
+            </span>
+          </div>
           <motion.h2
             id="cta-heading"
             className="font-serif text-2xl font-semibold leading-tight text-balance sm:text-3xl lg:text-4xl"

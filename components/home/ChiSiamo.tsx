@@ -2,40 +2,24 @@
 
 import { Section } from "@/components/layout/Section";
 import { Reveal } from "@/components/ui/Reveal";
-import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
-import { SectionLabel } from "@/components/ui/SectionLabel";
-import { DecorativeNumber } from "@/components/ui/DecorativeNumber";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 import { chiSiamoContent } from "@/lib/content/home";
 
 export function ChiSiamo() {
   return (
     <Section id="chi-siamo" className="bg-ivory-dark/40">
-      <DecorativeNumber position="bottom-right">02</DecorativeNumber>
 
       <div className="grid gap-16 lg:grid-cols-12 lg:gap-20 lg:items-start">
         <div className="lg:col-span-7">
-          <SectionLabel number="02" label="Chi siamo" />
-
-          <Reveal>
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-olive mb-4">
-              {chiSiamoContent.title}
-            </p>
-          </Reveal>
-
-          <RevealOnScroll>
-            <h2
-              id="chi-siamo-heading"
-              className="font-serif text-2xl font-semibold text-charcoal leading-tight sm:text-3xl lg:text-4xl mb-6"
-            >
-              Piattaforma di connessione, non solo consulenza
-            </h2>
-          </RevealOnScroll>
-
-          <RevealOnScroll delay={0.1}>
-            <p className="text-charcoal-soft leading-relaxed text-lg mb-6 max-w-xl">
-              {chiSiamoContent.intro}
-            </p>
-          </RevealOnScroll>
+          <SectionHeader
+            number="02"
+            label="Chi siamo"
+            kicker={chiSiamoContent.title}
+            title="Piattaforma di connessione, non solo consulenza"
+            description={chiSiamoContent.intro}
+            titleId="chi-siamo-heading"
+            className="mb-10"
+          />
 
           <Reveal delay={0.15}>
             <p className="text-charcoal-soft/80 leading-relaxed text-sm sm:text-base">
